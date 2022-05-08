@@ -62,7 +62,6 @@ class Post(models.Model):
     )
 
     class Meta:
-        ordering = ('-pub_date', )
         verbose_name = 'Публикация'
         verbose_name_plural = 'Публикации'
 
@@ -111,20 +110,20 @@ class Follow(models.Model):
                              verbose_name='Подписчик',
                              help_text='Подписчик',
                              related_name='follower')
-    author = models.ForeignKey(User,
-                               on_delete=models.CASCADE,
-                               null=True,
-                               verbose_name='Автор',
-                               help_text='Автор',
-                               related_name='following')
+    following = models.ForeignKey(User,
+                                  on_delete=models.CASCADE,
+                                  null=True,
+                                  verbose_name='Автор',
+                                  help_text='Автор',
+                                  related_name='following')
 
     class Meta:
         verbose_name = 'Подписки'
         verbose_name_plural = 'Подписки'
         constraints = (
-            UniqueConstraint(fields=('user', 'author', ),
+            UniqueConstraint(fields=('user', 'following', ),
                              name="unique_subscriber"),
         )
 
     def __str__(self):
-        return self.user.username + ' follow ' + self.author.username
+        return self.user.username + ' following ' + self.following.username
