@@ -4,8 +4,8 @@ from rest_framework import filters, permissions, status, viewsets
 from rest_framework.response import Response
 
 from posts.models import Group, Post, User
-from .serializers import (CommentSerializer, GroupSerializer
-    PostSerializer, FollowSerializer)
+from .serializers import CommentSerializer, GroupSerializer
+from .serializers import PostSerializer, FollowSerializer
 from .permissions import IsOwnerOrReadOnly
 
 
