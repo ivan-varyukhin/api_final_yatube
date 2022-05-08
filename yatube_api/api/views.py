@@ -1,11 +1,11 @@
 ﻿from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, permissions, status, viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from posts.models import Group, Post, User
-from .serializers import CommentSerializer, GroupSerializer, PostSerializer, FollowSerializer
+from .serializers import (CommentSerializer, GroupSerializer
+    PostSerializer, FollowSerializer)
 from .permissions import IsOwnerOrReadOnly
 
 
