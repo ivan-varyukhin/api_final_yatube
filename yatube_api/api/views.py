@@ -3,7 +3,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters, permissions, status, viewsets
 from rest_framework.response import Response
 
-from posts.models import Group, Post, User
+from posts.models import Post, User, Comment, Follow
 from .serializers import CommentSerializer, GroupSerializer
 from .serializers import PostSerializer, FollowSerializer
 from .permissions import IsOwnerOrReadOnly
